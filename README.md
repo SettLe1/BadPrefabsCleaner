@@ -14,6 +14,8 @@ Therefore, it is **important for you to keep the list of allowed prefabs up to d
 4. Run your server and use command **clearprefabs** in console after loading map
 5. If bad prefabs were removed from your map, they will be listed in the file **oxide/data/mapname.RemovedPrefabs.json**. A new map without bad prefabs will be saved to the server root folder.
 
+**Warning! All settings you made in RustEdit (password, electrical connections) will disappear from the cleared map.**
+
 *You can manually add prefabs to the allowed list if you are sure that they will not cause an error.*
 
 ![{7D1A7251-FC1F-47FA-8FF1-216CC3EB9259}](https://github.com/user-attachments/assets/473f7979-d604-4a62-bdec-9ce61eb9ab10)
