@@ -4,7 +4,7 @@ This plugin for the Rust (game) server with Oxide mod allows you to remove bad p
 ## Getting started
 1. Make sure your server is updated and has the latest version of Oxide installed
 > *server installing guide: https://wiki.facepunch.com/rust/Creating-a-server  
-> hosting custom map guide: https://wiki.facepunch.com/rust/Hosting_a_custom_map
+> hosting custom map guide: https://wiki.facepunch.com/rust/Hosting_a_custom_map  
 > download Oxide here: https://umod.org/games/rust*
 2. Put the **AllowedPrefabs.json** into **oxide/data** folder (if the folder does not exist you can create it)
 3. Put the **BadPrefabsCleaner.cs** into **oxide/plugins** folder
