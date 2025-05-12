@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Facepunch;
 using Oxide.Core;
+using ProtoBuf;
 
 namespace Oxide.Plugins
 {
@@ -39,6 +41,27 @@ namespace Oxide.Plugins
          {
             arg.ReplyWith("Bad prefabs not found on current map.");
             return;
+         }
+
+         bool hasWaterMap = false;
+         byte[] terrainData = null;
+         for (int i = 0; i < World.Serialization.world.maps.Count; i++)
+         {
+            var md = World.Serialization.world.maps[i];
+            if (md.name == "water") hasWaterMap = true;
+            if (md.name == "terrain") terrainData = md.data;
+            if (md.name.Length < 15 || md.name.Contains("topology"))
+               continue;
+            World.Serialization.world.maps.RemoveAt(i);
+            i--;
+         }
+
+         if (!hasWaterMap && terrainData != null)
+         {
+            var water = Pool.Get<MapData>();
+            water.name = "water";
+            water.data = terrainData;
+            World.Serialization.world.maps.Add(water);
          }
          
          var logFile = string.Concat(World.Name, ".RemovedPrefabs");
